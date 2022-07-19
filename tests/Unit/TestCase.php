@@ -4,17 +4,17 @@ namespace Tests\Unit;
 
 use Illuminate\Support\Facades\Route;
 use Livewire\LivewireServiceProvider;
-use Orchestra\Testbench\TestCase;
+use Orchestra\Testbench;
 use ReflectionClass;
-use WireUi\Providers\WireUiServiceProvider;
+use WireUi\WireUiServiceProvider;
 
-class UnitTestCase extends TestCase
+class TestCase extends Testbench\TestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
 
-        Route::middleware('web')->group(base_path('src/routes/web.php'));
+        Route::middleware('web')->group(base_path('src/routes.php'));
     }
 
     protected function getEnvironmentSetUp($app)

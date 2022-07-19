@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Blade;
 use WireUi\Facades\WireUiDirectives;
 use WireUi\Support\{BladeDirectives, WireUiTagCompiler};
 
-class WireUiTagCompilerTest extends UnitTestCase
+class WireUiTagCompilerTest extends TestCase
 {
     /** @test */
     public function it_should_match_scripts_and_styles_tags()

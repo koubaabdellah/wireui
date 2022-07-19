@@ -4,9 +4,9 @@ namespace Tests\Unit\Controllers;
 
 use Illuminate\Support\{Collection, Str};
 use Symfony\Component\Finder\{Finder, SplFileInfo};
-use Tests\Unit\UnitTestCase;
+use Tests\Unit\TestCase;
 
-class IconsControllerTest extends UnitTestCase
+class IconsControllerTest extends TestCase
 {
     public function test_it_should_assert_icon_is_found()
     {
