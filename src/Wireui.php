@@ -8,16 +8,16 @@ class Wireui
 {
     public function component(string $name): string
     {
-        return (new static)->components()->resolve($name);
+        return (new static())->components()->resolve($name);
     }
 
     public function components(): ComponentResolver
     {
-        return new ComponentResolver();
+        return app(ComponentResolver::class);
     }
 
     public function directives(): BladeDirectives
     {
-        return new BladeDirectives();
+        return app(BladeDirectives::class);
     }
 }
