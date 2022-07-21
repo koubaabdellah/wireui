@@ -29,7 +29,7 @@ class Errors extends Component
 
     public function render()
     {
-        return view('wireui::components.errors');
+        return view('wireui::errors');
     }
 
     public function hasErrors(ViewErrorBag $errors): bool

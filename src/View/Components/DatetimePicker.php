@@ -84,6 +84,6 @@ class DatetimePicker extends Input
 
     protected function getView(): string
     {
-        return 'wireui::components.datetime-picker';
+        return 'wireui::datetime-picker';
     }
 }

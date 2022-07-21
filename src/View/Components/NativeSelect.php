@@ -78,7 +78,7 @@ class NativeSelect extends FormComponent
 
     protected function getView(): string
     {
-        return 'wireui::components.native-select';
+        return 'wireui::native-select';
     }
 
     public function defaultClasses(): string

@@ -16,7 +16,7 @@ class ColorPicker extends FormComponent
 
     protected function getView(): string
     {
-        return 'wireui::components.color-picker';
+        return 'wireui::color-picker';
     }
 
     public function getColors(): array

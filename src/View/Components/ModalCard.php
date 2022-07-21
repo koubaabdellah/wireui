@@ -40,6 +40,6 @@ class ModalCard extends Modal
 
     public function render()
     {
-        return view('wireui::components.modal-card');
+        return view('wireui::modal-card');
     }
 }

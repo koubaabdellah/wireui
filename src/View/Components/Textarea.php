@@ -6,6 +6,6 @@ class Textarea extends Input
 {
     protected function getView(): string
     {
-        return 'wireui::components.textarea';
+        return 'wireui::textarea';
     }
 }

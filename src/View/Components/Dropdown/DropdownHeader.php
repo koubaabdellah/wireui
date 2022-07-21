@@ -21,7 +21,7 @@ class DropdownHeader extends Component
 
     public function render()
     {
-        return view('wireui::components.dropdown.header');
+        return view('wireui::dropdown.header');
     }
 
     protected function getClasses(): string

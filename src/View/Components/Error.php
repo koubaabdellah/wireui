@@ -15,6 +15,6 @@ class Error extends Component
 
     public function render()
     {
-        return view('wireui::components.error');
+        return view('wireui::error');
     }
 }

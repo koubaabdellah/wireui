@@ -25,7 +25,7 @@ class DropdownItem extends Component
 
     public function render()
     {
-        return view('wireui::components.dropdown.item');
+        return view('wireui::dropdown.item');
     }
 
     public function getClasses(): string

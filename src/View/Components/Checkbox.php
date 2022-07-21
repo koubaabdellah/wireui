@@ -25,17 +25,17 @@ class Checkbox extends FormComponent
         ?string $leftLabel = null,
         ?string $description = null
     ) {
-        $this->sm           = !$md && !$lg;
-        $this->md           = $md;
-        $this->lg           = $lg;
-        $this->label        = $label;
-        $this->leftLabel    = $leftLabel;
-        $this->description  = $description;
+        $this->sm          = !$md && !$lg;
+        $this->md          = $md;
+        $this->lg          = $lg;
+        $this->label       = $label;
+        $this->leftLabel   = $leftLabel;
+        $this->description = $description;
     }
 
     protected function getView(): string
     {
-        return 'wireui::components.checkbox';
+        return 'wireui::checkbox';
     }
 
     public function getClasses(bool $hasError): string

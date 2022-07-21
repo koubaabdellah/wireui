@@ -33,6 +33,6 @@ class TimePicker extends Input
 
     protected function getView(): string
     {
-        return 'wireui::components.time-picker';
+        return 'wireui::time-picker';
     }
 }

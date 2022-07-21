@@ -19,7 +19,7 @@ class Dropdown extends Component
 
     public function render()
     {
-        return view('wireui::components.dropdown');
+        return view('wireui::dropdown');
     }
 
     public function getAlign(): string

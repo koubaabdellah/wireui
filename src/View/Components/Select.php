@@ -73,7 +73,7 @@ class Select extends NativeSelect
 
     protected function getView(): string
     {
-        return 'wireui::components.select';
+        return 'wireui::select';
     }
 
     public function getOptionLabel(mixed $option): string

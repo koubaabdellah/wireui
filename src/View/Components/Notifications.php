@@ -20,7 +20,7 @@ class Notifications extends Component
 
     public function render()
     {
-        return view('wireui::components.notifications');
+        return view('wireui::notifications');
     }
 
     public function getPosition(?string $position): string

@@ -18,7 +18,7 @@ class Option extends Component
 
     public function render()
     {
-        return view('wireui::components.select.option');
+        return view('wireui::select.option');
     }
 
     public function jsonOption(): string

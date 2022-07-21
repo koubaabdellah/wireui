@@ -39,7 +39,7 @@ abstract class BaseMaskable extends Input
 
     protected function getView(): string
     {
-        return 'wireui::components.inputs.maskable';
+        return 'wireui::inputs.maskable';
     }
 
     private function formatMask(string $mask): string

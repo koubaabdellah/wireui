@@ -8,7 +8,7 @@ class Toggle extends Checkbox
 {
     protected function getView(): string
     {
-        return 'wireui::components.toggle';
+        return 'wireui::toggle';
     }
 
     public function backgroundClasses(bool $hasError): string

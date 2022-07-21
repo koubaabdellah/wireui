@@ -30,7 +30,7 @@ abstract class BaseButton extends Component
     public function render()
     {
         return function (array $data) {
-            return view('wireui::components.button', $this->mergeData($data))->render();
+            return view('wireui::button', $this->mergeData($data))->render();
         };
     }
 

@@ -31,6 +31,6 @@ class Dialog extends Modal
 
     public function render()
     {
-        return view('wireui::components.dialog');
+        return view('wireui::dialog');
     }
 }

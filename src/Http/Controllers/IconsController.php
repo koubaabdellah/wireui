@@ -9,7 +9,7 @@ class IconsController extends Controller
 {
     public function __invoke(string $style, string $icon)
     {
-        $view = "wireui::components.icons.{$style}.{$icon}";
+        $view = "wireui::icons.{$style}.{$icon}";
 
         abort_unless(View::exists($view), Response::HTTP_NOT_FOUND, "Icon \"{$icon}\" not found.");
 

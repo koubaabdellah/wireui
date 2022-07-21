@@ -30,7 +30,7 @@ class Modal extends Component
 
     public function render()
     {
-        return view('wireui::components.modal');
+        return view('wireui::modal');
     }
 
     private function getBlur($blur): ?string

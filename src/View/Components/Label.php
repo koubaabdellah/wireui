@@ -14,6 +14,6 @@ class Label extends Component
 
     public function render()
     {
-        return view('wireui::components.label');
+        return view('wireui::label');
     }
 }

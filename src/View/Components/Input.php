@@ -60,7 +60,7 @@ class Input extends FormComponent
 
     protected function getView(): string
     {
-        return 'wireui::components.input';
+        return 'wireui::input';
     }
 
     public function getInputClasses(bool $hasError = false): string

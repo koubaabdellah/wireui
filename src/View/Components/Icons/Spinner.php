@@ -8,6 +8,6 @@ class Spinner extends Component
 {
     public function render()
     {
-        return view('wireui::components.icons.spinner');
+        return view('wireui::icons.spinner');
     }
 }

@@ -41,6 +41,6 @@ class CurrencyInput extends Input
 
     protected function getView(): string
     {
-        return 'wireui::components.inputs.currency';
+        return 'wireui::inputs.currency';
     }
 }
