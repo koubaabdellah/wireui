@@ -2,15 +2,22 @@
 
 namespace WireUi\Support;
 
+use Illuminate\Support\Facades\File;
 use Illuminate\View\ComponentAttributeBag;
 use WireUi\Actions\Minify;
 
 class BladeDirectives
 {
+    protected string $nullableLivewireId = "<?= isset(\$_instance) ? \"'{\$_instance->id}'\" : 'null' ?>";
+
     public function scripts(bool $absolute = true, array $attributes = []): string
     {
-        $route = route('wireui.assets.scripts', $parameters = [], $absolute);
-        $this->getManifestVersion('wireui.js', $route);
+        $route   = route(name: 'wireui.assets.scripts', absolute: $absolute);
+        $version = $this->getManifestVersion('wireui.js');
+
+        if ($version) {
+            $route .= "?id={$version}";
+        }
 
         $attributes = new ComponentAttributeBag($attributes);
 
@@ -38,38 +45,38 @@ class BladeDirectives
 
     public function styles(bool $absolute = true): string
     {
-        $route = route('wireui.assets.styles', $parameters = [], $absolute);
-        $this->getManifestVersion('wireui.css', $route);
+        $route   = route(name: 'wireui.assets.styles', absolute: $absolute);
+        $version = $this->getManifestVersion('wireui.css');
+
+        if ($version) {
+            $route .= "?id={$version}";
+        }
 
         return "<link href=\"{$route}\" rel=\"stylesheet\" type=\"text/css\">";
     }
 
-    public function getManifestVersion(string $file, ?string &$route = null): ?string
+    public function getManifestVersion(string $file): ?string
     {
         $manifestPath = __DIR__ . '/../dist/mix-manifest.json';
 
-        if (!file_exists($manifestPath)) {
+        if (File::missing($manifestPath)) {
             return null;
         }
 
         $manifest = json_decode(file_get_contents($manifestPath), $assoc = true);
         $version  = last(explode('=', $manifest["/{$file}"]));
 
-        if ($route) {
-            $route .= "?id={$version}";
-        }
-
         return $version;
     }
 
     public function confirmAction(string $expression): string
     {
-        return "onclick=\"window.\$wireui.confirmAction($expression, '{{ \$_instance->id }}')\"";
+        return "onclick=\"\$wireui.confirmAction({$expression}, {$this->nullableLivewireId})\"";
     }
 
     public function notify(string $expression): string
     {
-        return "onclick=\"window.\$wireui.notify($expression, '{{ \$_instance->id }}')\"";
+        return "onclick=\"\$wireui.notify({$expression}, {$this->nullableLivewireId})\"";
     }
 
     public function boolean(string $value): string
