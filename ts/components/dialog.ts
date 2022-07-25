@@ -149,7 +149,7 @@ export default (options: InitOptions): DialogComponent => ({
 
     params.delete('execute')
 
-    fetch(`/wireui/button?${params}`, {
+    fetch(`/wireui/buttons?${params}`, {
       headers: {
         'Accept': 'application/json'
       }
