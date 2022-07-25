@@ -2,10 +2,11 @@
 
 namespace Tests\Unit;
 
-use Illuminate\Support\Facades\{Artisan, File, Route};
+use Illuminate\Support\Facades\{Artisan, Route};
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench;
 use ReflectionClass;
+use WireUi\Heroicons\HeroiconsServiceProvider;
 use WireUi\PhosphorIcons\PhosphorIconsServiceProvider;
 use WireUi\WireUiServiceProvider;
 
@@ -35,8 +36,9 @@ class TestCase extends Testbench\TestCase
     {
         return [
             LivewireServiceProvider::class,
-            WireUiServiceProvider::class,
+            HeroiconsServiceProvider::class,
             PhosphorIconsServiceProvider::class,
+            WireUiServiceProvider::class,
         ];
     }
 

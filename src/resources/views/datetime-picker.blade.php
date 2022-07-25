@@ -97,7 +97,7 @@
                     class="rounded-lg shrink-0"
                     x-show="!monthsPicker"
                     x-on:click="previousMonth"
-                    icon="chevron-left"
+                    icon="caret-left"
                     flat
                 />
 
@@ -119,7 +119,7 @@
                     class="rounded-lg shrink-0"
                     x-show="!monthsPicker"
                     x-on:click="nextMonth"
-                    icon="chevron-right"
+                    icon="caret-right"
                     flat
                 />
             </div>

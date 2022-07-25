@@ -27,7 +27,7 @@ export const icons = {
     background: 'p-2 bg-info-50 dark:bg-secondary-700 border dark:border-0 rounded-3xl'
   },
   'warning': {
-    name: 'exclamation-circle',
+    name: 'warning-circle',
     color: colors['warning'],
     background: 'p-2 bg-warning-50 dark:bg-secondary-700 border dark:border-0 rounded-3xl'
   },

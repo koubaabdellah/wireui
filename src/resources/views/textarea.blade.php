@@ -69,7 +69,7 @@
                 @elseif($hasError)
                     <x-dynamic-component
                         :component="WireUi::component('icon')"
-                        name="exclamation-circle"
+                        name="warning-circle"
                         class="h-5 w-5"
                     />
                 @endif

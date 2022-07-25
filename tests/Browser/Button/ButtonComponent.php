@@ -37,23 +37,23 @@ class ButtonComponent extends \Livewire\Component
             <x-button squared info label="info" />
             <x-button squared dark label="dark" />
 
-            <x-button flat label="Label" icon="home" />
-            <x-button flat primary label="primary" icon="home" />
-            <x-button flat secondary label="secondary" icon="home" />
-            <x-button flat positive label="positive" icon="home" />
-            <x-button flat negative label="negative" icon="home" />
-            <x-button flat warning label="warning" icon="home" />
-            <x-button flat info label="info" icon="home" />
-            <x-button flat dark label="dark" icon="home" />
+            <x-button flat label="Label" icon="house" />
+            <x-button flat primary label="primary" icon="house" />
+            <x-button flat secondary label="secondary" icon="house" />
+            <x-button flat positive label="positive" icon="house" />
+            <x-button flat negative label="negative" icon="house" />
+            <x-button flat warning label="warning" icon="house" />
+            <x-button flat info label="info" icon="house" />
+            <x-button flat dark label="dark" icon="house" />
 
-            <x-button outline label="Label" right-icon="home" />
-            <x-button outline primary label="primary" right-icon="home" />
-            <x-button outline secondary label="secondary" right-icon="home" />
-            <x-button outline disabled positive label="positive" right-icon="home" />
-            <x-button outline disabled negative label="negative" right-icon="home" />
-            <x-button outline warning label="warning" right-icon="home" />
-            <x-button outline info label="info" right-icon="home" />
-            <x-button outline dark label="dark" right-icon="home" />
+            <x-button outline label="Label" right-icon="house" />
+            <x-button outline primary label="primary" right-icon="house" />
+            <x-button outline secondary label="secondary" right-icon="house" />
+            <x-button outline disabled positive label="positive" right-icon="house" />
+            <x-button outline disabled negative label="negative" right-icon="house" />
+            <x-button outline warning label="warning" right-icon="house" />
+            <x-button outline info label="info" right-icon="house" />
+            <x-button outline dark label="dark" right-icon="house" />
         </div>
         BLADE;
     }

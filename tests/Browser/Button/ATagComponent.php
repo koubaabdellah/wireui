@@ -10,14 +10,14 @@ class ATagComponent extends \Livewire\Component
         <div>
             <h1>Buttons test</h1>
 
-            <x-button href="#0" label="Label" icon="home" />
-            <x-button href="#1" primary label="primary" icon="home" />
-            <x-button href="#2" secondary label="secondary" icon="home" />
-            <x-button href="#3" disabled positive label="positive" icon="home" />
-            <x-button href="#4" disabled negative label="negative" icon="home" />
-            <x-button href="#5" warning label="warning" icon="home" />
-            <x-button href="#6" info label="info" icon="home" />
-            <x-button href="#7" dark label="dark" icon="home" />
+            <x-button href="#0" label="Label" icon="house" />
+            <x-button href="#1" primary label="primary" icon="house" />
+            <x-button href="#2" secondary label="secondary" icon="house" />
+            <x-button href="#3" disabled positive label="positive" icon="house" />
+            <x-button href="#4" disabled negative label="negative" icon="house" />
+            <x-button href="#5" warning label="warning" icon="house" />
+            <x-button href="#6" info label="info" icon="house" />
+            <x-button href="#7" dark label="dark" icon="house" />
         </div>
         BLADE;
     }

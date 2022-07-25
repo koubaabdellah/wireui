@@ -18,7 +18,9 @@ use Psy\Shell;
 use Symfony\Component\Finder\SplFileInfo;
 use Tests\Browser\Macros\DuskBrowserMacros;
 use Throwable;
-use WireUi\Providers\WireUiServiceProvider;
+use WireUi\Heroicons\HeroiconsServiceProvider;
+use WireUi\PhosphorIcons\PhosphorIconsServiceProvider;
+use WireUi\WireUiServiceProvider;
 
 /** @link https://github.com/livewire/livewire/blob/master/tests/Browser/TestCase.php */
 class BrowserTestCase extends Dusk\TestCase
@@ -119,6 +121,8 @@ class BrowserTestCase extends Dusk\TestCase
     {
         return [
             LivewireServiceProvider::class,
+            PhosphorIconsServiceProvider::class,
+            HeroiconsServiceProvider::class,
             WireUiServiceProvider::class,
         ];
     }

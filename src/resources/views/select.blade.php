@@ -179,7 +179,7 @@
                     x-on:keydown.arrow-down.prevent="$event.shiftKey || getNextFocusable().focus()"
                     x-on:keydown.arrow-up.prevent="getPrevFocusable().focus()"
                     shadowless
-                    right-icon="search"
+                    right-icon="magnifying-glass"
                     :placeholder="trans('wireui::messages.searchHere')"
                 />
             </div>

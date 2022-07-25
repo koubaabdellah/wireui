@@ -50,7 +50,7 @@ class DatetimePicker extends Input
         string $timeFormat = TimePicker::DEFAULT_FORMAT,
         ?string $parseFormat = null,
         ?string $displayFormat = null,
-        ?string $rightIcon = 'calendar',
+        ?string $rightIcon = 'calendar-blank',
         ?string $timezone = null,
         ?string $userTimezone = null,
         ?string $label = null,
