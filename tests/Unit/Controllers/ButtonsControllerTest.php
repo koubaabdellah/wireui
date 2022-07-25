@@ -2,7 +2,7 @@
 
 use Illuminate\View\ComponentAttributeBag;
 use Symfony\Component\HttpFoundation\Response;
-use WireUi\Http\Controllers\ButtonController;
+use WireUi\Http\Controllers\ButtonsController;
 
 it('should render the button with attributes', function () {
     $this->getJson(route('wireui.render.buttons', [
@@ -20,8 +20,8 @@ it('should filter the attributes and exclude malicious attributes', function () 
         ':type'  => "config('app.name')",
     ];
 
-    /** @var ButtonController $controller */
-    $controller = resolve(ButtonController::class);
+    /** @var ButtonsController $controller */
+    $controller = resolve(ButtonsController::class);
 
     /** @var ComponentAttributeBag $filteredAttributes */
     $filteredAttributes = $this->invokeMethod($controller, 'attributes', [$attributes]);
