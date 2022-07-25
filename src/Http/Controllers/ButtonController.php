@@ -18,14 +18,12 @@ class ButtonController extends Controller
 
     public function __invoke(ButtonRequest $request): Response
     {
-        $blade = <<<EOT
+        $html = $this->compiler->compile(<<<EOT
             <x-dynamic-component
                 :component="WireUi::component('button')"
-                {$this->attributes($request->all())->toHtml()}
+                {$this->attributes($request->validated())->toHtml()}
             />
-        EOT;
-
-        $html = $this->compiler->compile($blade);
+        EOT);
 
         return response($html)->withHeaders([
             'Content-Type'  => 'text/html; charset=utf-8',
@@ -35,8 +33,6 @@ class ButtonController extends Controller
 
     protected function attributes(array $attributes): ComponentAttributeBag
     {
-        $attributes = new ComponentAttributeBag($attributes);
-
-        return $attributes->whereDoesntStartWith(':');
+        return (new ComponentAttributeBag($attributes))->whereDoesntStartWith(':');
     }
 }
