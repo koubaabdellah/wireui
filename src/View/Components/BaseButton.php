@@ -3,6 +3,7 @@
 namespace WireUi\View\Components;
 
 use Illuminate\View\{Component, ComponentAttributeBag};
+use WireUi\View\Attribute;
 
 abstract class BaseButton extends Component
 {
@@ -16,34 +17,71 @@ abstract class BaseButton extends Component
         public bool $outline = false,
         public bool $flat = false,
         public bool $full = false,
+        public bool $preventWireLoading = true,
         public ?string $color = null,
         public ?string $size = null,
         public ?string $label = null,
         public ?string $icon = null,
         public ?string $rightIcon = null,
-        public ?string $spinner = null,
-        public ?string $loadingDelay = null,
-        public ?string $href = null
     ) {
     }
 
     public function render()
     {
         return function (array $data) {
-            return view('wireui::button', $this->mergeData($data))->render();
+            return view('wireui::button', $this->proccessData($data))->render();
         };
     }
 
-    protected function mergeData(array $data): array
+    protected function proccessData(array $data): array
     {
-        /** @var ComponentAttributeBag $attributes */
-        $attributes         = $data['attributes'];
-        $attributes         = $this->mergeClasses($attributes);
-        $data['iconSize']   = $this->iconSize($attributes);
-        $data['disabled']   = (bool) $attributes->get('disabled');
-        $data['attributes'] = $attributes->except($this->smartAttributes);
+        $attributes = $this->mergeClasses($data['attributes']);
+        $spinner    = $this->getSpinner($attributes);
 
-        return $data;
+        if (!$attributes->has('href') && !$attributes->has('type')) {
+            $attributes->offsetSet('type', 'button');
+        }
+
+        if ($this->preventWireLoading) {
+            $attributes->offsetSet('wire:loading.attr', 'disabled');
+            $attributes->offsetSet('wire:loading.class', '!cursor-wait');
+        }
+
+        return array_merge($data, [
+            'spinner'    => $spinner,
+            'iconSize'   => $this->iconSize($attributes),
+            'disabled'   => (bool) $attributes->get('disabled'),
+            'tag'        => $attributes->has('href') ? 'a' : 'button',
+            'attributes' => $attributes->except($this->smartAttributes),
+        ]);
+    }
+
+    private function getSpinner(ComponentAttributeBag &$buttonAttributes): ?ComponentAttributeBag
+    {
+        /** @var Attribute $spinner */
+        $spinner = $buttonAttributes->attribute('spinner');
+
+        if (!$spinner->exists()) {
+            return null;
+        }
+
+        $target  = $spinner->value();
+        $loading = 'wire:loading.delay';
+
+        if ($delay = $spinner->modifiers()->first()) {
+            $loading .= ".{$delay}";
+        }
+
+        $attributes = new ComponentAttributeBag([$loading => true]);
+
+        if (is_string($target)) {
+            $attributes->offsetSet('wire:target', $target);
+            $buttonAttributes->offsetSet('wire:target', $target);
+        }
+
+        $buttonAttributes->offsetUnset($spinner->name());
+
+        return $attributes;
     }
 
     private function mergeClasses(ComponentAttributeBag $attributes): ComponentAttributeBag
