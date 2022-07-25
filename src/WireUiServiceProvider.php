@@ -72,7 +72,8 @@ class WireUiServiceProvider extends ServiceProvider
 
     private function disablePhosphorIconComponent(): self
     {
-        config()->set('wireui.phosphoricons.alias', null);
+        config()->set('wireui.phosphoricons.alias', 'icons.phosphoricons');
+        config()->set('wireui.heroicons.alias', 'icons.heroicons');
 
         return $this;
     }
