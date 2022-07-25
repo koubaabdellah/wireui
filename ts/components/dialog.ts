@@ -132,7 +132,7 @@ export default (options: InitOptions): DialogComponent => ({
       classes.push('sm:w-6', 'sm:h-6')
     }
 
-    fetch(`/wireui/icons/${icon.style ?? 'outline'}/${icon.name}`, {
+    fetch(`/wireui/icons/${icon.name}/${icon.style ?? null}`, {
       headers: {
         'Accept': 'application/json'
       }

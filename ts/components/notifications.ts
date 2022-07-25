@@ -56,7 +56,7 @@ export default (): Notifications => ({
   fillNotificationIcon (notification) {
     const classes = `w-6 h-6 ${notification.icon.color}`.split(' ')
 
-    fetch(`/wireui/icons/outline/${notification.icon.name}`)
+    fetch(`/wireui/icons/${notification.icon.name}`)
       .then(response => response.text())
       .then(text => {
         const svg = new DOMParser().parseFromString(text, 'image/svg+xml').documentElement
