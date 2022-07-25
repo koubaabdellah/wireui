@@ -7,6 +7,7 @@ use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\{ComponentAttributeBag, Factory, FileViewFinder};
 use Tests\Unit\TestCase;
 use WireUi\Facades\WireUi;
+use WireUi\View\Attribute;
 use WireUi\View\Components\Icon;
 use WireUi\WireUiServiceProvider;
 
@@ -103,3 +104,32 @@ it('should register the component attributes bag macros', function () {
 
     expect($macros)->toHaveKey('wireModifiers');
 });
+
+it('should register the attribute macro on ComponentAttributeBag', function () {
+    /** @var TestCase $this */
+
+    $macros = $this->invokeProperty(new ComponentAttributeBag(), 'macros');
+
+    expect($macros)->toHaveKey('attribute');
+});
+
+it('should get the attribute with modifiers', function (string $attribute, array $modifiers) {
+    /** @var ComponentAttributeBag $bag */
+    $bag = new ComponentAttributeBag([
+        'name'     => 'foo',
+        $attribute => true,
+        'docker'   => 'container',
+        'sail'     => 'laravel',
+    ]);
+
+    /** @var Attribute $attribute */
+    $attribute = $bag->attribute('spinner');
+
+    expect($attribute->modifiers()->toArray())->toBe($modifiers);
+})->with([
+    ['spinner', []],
+    ['spinner.lazy', ['lazy']],
+    ['spinner.lazy.lazy', ['lazy']],
+    ['spinner.lazy..bar', ['lazy', 'bar']],
+    ['spinner.lazy.foo.', ['lazy', 'foo']],
+]);
