@@ -1,10 +1,10 @@
 <?php
 
 return [
-    'selectTime'    => 'Sélectionner l\'heure',
+    'select_time'   => 'Sélectionner l\'heure',
     'empty_options' => 'Aucune Option',
     'loading'       => 'Chargement...',
-    'searchHere'    => 'Cherchez ici',
+    'search_here'   => 'Cherchez ici',
     'datePicker'    => [
         'months'    => "['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']",
         'days'      => "['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam']",

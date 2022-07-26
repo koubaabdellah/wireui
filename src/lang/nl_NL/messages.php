@@ -2,7 +2,7 @@
 
 return [
     'empty_options' => 'Lege Opties',
-    'searchHere'    => 'Zoek hier',
+    'search_here'   => 'Zoek hier',
     'datePicker'    => [
         'months'    => "['Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni', 'Juli', 'Augustus', 'September', 'Oktober', 'November', 'December']",
         'days'      => "['Zo', 'Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za']",
