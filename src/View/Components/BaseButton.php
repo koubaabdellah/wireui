@@ -66,10 +66,10 @@ abstract class BaseButton extends Component
         }
 
         $target  = $spinner->value();
-        $loading = 'wire:loading.delay';
+        $loading = 'wire:loading';
 
         if ($delay = $spinner->modifiers()->first()) {
-            $loading .= ".{$delay}";
+            $loading .= ".delay.{$delay}";
         }
 
         $attributes = new ComponentAttributeBag([$loading => true]);
@@ -79,7 +79,7 @@ abstract class BaseButton extends Component
             $buttonAttributes->offsetSet('wire:target', $target);
         }
 
-        $buttonAttributes->offsetUnset($spinner->name());
+        $buttonAttributes->offsetUnset($spinner->directive());
 
         return $attributes;
     }

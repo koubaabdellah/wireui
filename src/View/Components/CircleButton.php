@@ -5,19 +5,13 @@ namespace WireUi\View\Components;
 class CircleButton extends Button
 {
     public function __construct(
-        public bool $rounded = true,
-        public bool $squared = false,
         public bool $outline = false,
         public bool $flat = false,
-        public bool $full = false,
+        public bool $preventWireLoading = true,
         public ?string $color = null,
         public ?string $size = null,
         public ?string $label = null,
         public ?string $icon = null,
-        public ?string $rightIcon = null,
-        public ?string $spinner = null,
-        public ?string $loadingDelay = null,
-        public ?string $href = null
     ) {
         parent::__construct(
             rounded: true,
@@ -25,22 +19,39 @@ class CircleButton extends Button
             outline: $outline,
             flat: $flat,
             full: false,
+            preventWireLoading: $preventWireLoading,
             color: $color,
             size: $size,
             label: $label,
             icon: $icon,
             rightIcon: null,
-            spinner: $spinner,
-            loadingDelay: $loadingDelay,
-            href: $href
         );
     }
 
     public function render()
     {
         return function (array $data) {
-            return view('wireui::circle-button', $this->mergeData($data))->render();
+            return view('wireui::circle-button', $this->proccessData($data))->render();
         };
+    }
+
+    protected function proccessData(array $data): array
+    {
+        $data = array_merge(parent::proccessData($data), [
+            'wireLoadingAttribute' => null,
+        ]);
+
+        if ($spinner = $data['spinner']) {
+            $delay = $spinner->attribute('wire:loading')->modifiers()->last();
+
+            $data['wireLoadingAttribute'] = 'wire:loading.remove';
+
+            if ($delay && $delay !== 'remove') {
+                $data['wireLoadingAttribute'] .= ".delay.{$delay}";
+            }
+        }
+
+        return $data;
     }
 
     public function sizes(): array
