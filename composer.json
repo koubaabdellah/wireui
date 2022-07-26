@@ -26,10 +26,10 @@
         "orchestra/testbench": "^7.0",
         "orchestra/testbench-dusk": "^7.0",
         "psy/psysh": "@stable",
-        "friendsofphp/php-cs-fixer": "^3.8",
         "pestphp/pest": "^1.21",
         "pestphp/pest-plugin-livewire": "^1.0",
-        "pestphp/pest-plugin-mock": "^1.0"
+        "pestphp/pest-plugin-mock": "^1.0",
+        "laravel/pint": "^1.0"
     },
     "authors": [
         {
@@ -57,7 +57,7 @@
         ],
         "test": "./vendor/bin/pest",
         "test:ci": "CI=true ./vendor/bin/pest",
-        "phpcs": "./vendor/bin/php-cs-fixer fix"
+        "pint": "./vendor/bin/pint"
     },
     "extra": {
         "laravel": {
