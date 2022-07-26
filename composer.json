@@ -29,7 +29,8 @@
         "pestphp/pest": "^1.21",
         "pestphp/pest-plugin-livewire": "^1.0",
         "pestphp/pest-plugin-mock": "^1.0",
-        "laravel/pint": "^1.0"
+        "laravel/pint": "^1.0",
+        "phpstan/phpstan": "^1.8"
     },
     "authors": [
         {
@@ -57,7 +58,9 @@
         ],
         "test": "./vendor/bin/pest",
         "test:ci": "CI=true ./vendor/bin/pest",
-        "pint": "./vendor/bin/pint"
+        "pint": "./vendor/bin/pint",
+        "pint:test": "./vendor/bin/pint --test",
+        "phpstan": "./vendor/bin/phpstan analyse src --level max"
     },
     "extra": {
         "laravel": {
