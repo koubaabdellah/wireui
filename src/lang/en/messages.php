@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'select_time'   => 'Select time',
-    'search_here'   => 'Search here',
+    'select_time'   => 'Select Time',
+    'search_here'   => 'Search Here',
     'empty_options' => 'Empty Options',
     'loading'       => 'Loading...',
     'datePicker'    => [
