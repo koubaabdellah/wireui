@@ -2,6 +2,8 @@
 
 namespace WireUi\View\Components;
 
+use Closure;
+
 class CircleButton extends Button
 {
     public function __construct(
@@ -28,7 +30,7 @@ class CircleButton extends Button
         );
     }
 
-    public function render()
+    public function render(): Closure
     {
         return function (array $data) {
             return view('wireui::circle-button', $this->proccessData($data))->render();
@@ -57,26 +59,26 @@ class CircleButton extends Button
     public function sizes(): array
     {
         return [
-            '2xs'         => 'w-5 h-5',
-            'xs'          => 'w-7 h-7',
-            'sm'          => 'w-8 h-8',
-            self::DEFAULT => 'w-9 h-9',
-            'md'          => 'w-10 h-10',
-            'lg'          => 'w-12 h-12',
-            'xl'          => 'w-14 h-14',
+            '2xs'     => 'w-5 h-5',
+            'xs'      => 'w-7 h-7',
+            'sm'      => 'w-8 h-8',
+            'default' => 'w-9 h-9',
+            'md'      => 'w-10 h-10',
+            'lg'      => 'w-12 h-12',
+            'xl'      => 'w-14 h-14',
         ];
     }
 
     public function iconSizes(): array
     {
         return [
-            '2xs'         => 'w-2 h-2',
-            'xs'          => 'w-3 h-3',
-            'sm'          => 'w-3.5 h-3.5',
-            self::DEFAULT => 'w-4 h-4',
-            'md'          => 'w-4 h-4',
-            'lg'          => 'w-5 h-5',
-            'xl'          => 'w-6 h-6',
+            '2xs'     => 'w-2 h-2',
+            'xs'      => 'w-3 h-3',
+            'sm'      => 'w-3.5 h-3.5',
+            'default' => 'w-4 h-4',
+            'md'      => 'w-4 h-4',
+            'lg'      => 'w-5 h-5',
+            'xl'      => 'w-6 h-6',
         ];
     }
 }

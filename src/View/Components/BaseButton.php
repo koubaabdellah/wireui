@@ -2,15 +2,12 @@
 
 namespace WireUi\View\Components;
 
-use Illuminate\View\{Component, ComponentAttributeBag};
+use Closure;
+use Illuminate\View\ComponentAttributeBag;
 use WireUi\View\Attribute;
 
 abstract class BaseButton extends Component
 {
-    protected const DEFAULT = 'default';
-
-    private array $smartAttributes = [];
-
     public function __construct(
         public bool $rounded = false,
         public bool $squared = false,
@@ -26,7 +23,7 @@ abstract class BaseButton extends Component
     ) {
     }
 
-    public function render()
+    public function render(): Closure
     {
         return function (array $data) {
             return view('wireui::button', $this->proccessData($data))->render();
@@ -35,31 +32,32 @@ abstract class BaseButton extends Component
 
     protected function proccessData(array $data): array
     {
-        $attributes = $this->mergeClasses($data['attributes']);
-        $spinner    = $this->getSpinner($attributes);
+        $this->mergeClasses();
 
-        if (!$attributes->has('href') && !$attributes->has('type')) {
-            $attributes->offsetSet('type', 'button');
+        $spinner = $this->getSpinner();
+
+        if (!$this->attributes->has('href') && !$this->attributes->has('type')) {
+            $this->attributes->offsetSet('type', 'button');
         }
 
         if ($this->preventWireLoading) {
-            $attributes->offsetSet('wire:loading.attr', 'disabled');
-            $attributes->offsetSet('wire:loading.class', '!cursor-wait');
+            $this->attributes->offsetSet('wire:loading.attr', 'disabled');
+            $this->attributes->offsetSet('wire:loading.class', '!cursor-wait');
         }
 
         return array_merge($data, [
             'spinner'    => $spinner,
-            'iconSize'   => $this->iconSize($attributes),
-            'disabled'   => (bool) $attributes->get('disabled'),
-            'tag'        => $attributes->has('href') ? 'a' : 'button',
-            'attributes' => $attributes->except($this->smartAttributes),
+            'attributes' => $this->attributes,
+            'disabled'   => (bool) $this->attributes->get('disabled'),
+            'tag'        => $this->attributes->has('href') ? 'a' : 'button',
+            'iconSize'   => $this->modifierClasses($this->size, $this->iconSizes()),
         ]);
     }
 
-    private function getSpinner(ComponentAttributeBag &$buttonAttributes): ?ComponentAttributeBag
+    private function getSpinner(): ?ComponentAttributeBag
     {
         /** @var Attribute $spinner */
-        $spinner = $buttonAttributes->attribute('spinner');
+        $spinner = $this->attributes->attribute('spinner');
 
         if (!$spinner->exists()) {
             return null;
@@ -72,51 +70,30 @@ abstract class BaseButton extends Component
             $loading .= ".delay.{$delay}";
         }
 
-        $attributes = new ComponentAttributeBag([$loading => true]);
+        $spinnerAttributes = new ComponentAttributeBag([$loading => true]);
 
         if (is_string($target)) {
-            $attributes->offsetSet('wire:target', $target);
-            $buttonAttributes->offsetSet('wire:target', $target);
+            $spinnerAttributes->offsetSet('wire:target', $target);
+            $this->attributes->offsetSet('wire:target', $target);
         }
 
-        $buttonAttributes->offsetUnset($spinner->directive());
+        $this->attributes->offsetUnset($spinner->directive());
 
-        return $attributes;
+        return $spinnerAttributes;
     }
 
-    private function mergeClasses(ComponentAttributeBag $attributes): ComponentAttributeBag
+    private function mergeClasses(): void
     {
-        return $attributes->class([
+        $this->attributes = $this->attributes->class([
             'outline-none inline-flex justify-center items-center group',
             'transition-all ease-in duration-150 focus:ring-2 focus:ring-offset-2',
             'hover:shadow-sm disabled:opacity-80 disabled:cursor-not-allowed',
+            $this->modifierClasses($this->color, $this->currentColors()),
+            $this->modifierClasses($this->size, $this->sizes()),
             'rounded-full' => !$this->squared && $this->rounded,
             'rounded'      => !$this->squared && !$this->rounded,
             'w-full'       => $this->full,
-            $this->size($attributes),
-            $this->color($attributes),
         ]);
-    }
-
-    private function size(ComponentAttributeBag $attributes): string
-    {
-        return $this->size
-            ? $this->sizes()[$this->size]
-            : $this->modifierClasses($attributes, $this->sizes());
-    }
-
-    private function iconSize(ComponentAttributeBag $attributes): string
-    {
-        return $this->size
-            ? $this->iconSizes()[$this->size]
-            : $this->modifierClasses($attributes, $this->iconSizes());
-    }
-
-    private function color(ComponentAttributeBag $attributes): string
-    {
-        return $this->color
-            ? $this->currentColors()[$this->color]
-            : $this->modifierClasses($attributes, $this->currentColors());
     }
 
     private function currentColors(): array
@@ -130,35 +107,6 @@ abstract class BaseButton extends Component
         }
 
         return $this->defaultColors();
-    }
-
-    /**
-     * Will find the correct modifier, like sizes, xs, sm given as a component attribute
-     * This function will return "default" if no matches are found
-     * e.g. The sizes modifiers are: $sizes ['xs' => '...', ...]
-     *      <x-button xs ... /> will return "xs"
-     *      <x-button ... /> will return "default"
-     */
-    private function findModifier(ComponentAttributeBag $attributes, array $modifiers): string
-    {
-        $keys      = collect($modifiers)->keys()->except(self::DEFAULT)->toArray();
-        $modifiers = $attributes->only($keys)->getAttributes();
-        $modifier  = collect($modifiers)->filter()->keys()->first();
-
-        // store the modifier to remove from attributes bag
-        if ($modifier && !in_array($modifier, $this->smartAttributes)) {
-            $this->smartAttributes[] = $modifier;
-        }
-
-        return $modifier ?? self::DEFAULT;
-    }
-
-    /** Finds the correct modifier css classes on attributes */
-    public function modifierClasses(ComponentAttributeBag $attributes, array $modifiers): string
-    {
-        $modifier = $this->findModifier($attributes, $modifiers);
-
-        return $modifiers[$modifier];
     }
 
     abstract public function outlineColors(): array;
