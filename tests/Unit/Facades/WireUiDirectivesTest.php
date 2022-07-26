@@ -35,7 +35,8 @@ it('should create the confirm action expression with livewire', function () {
     HTML;
 
     $rendered = Blade::render($html, [
-        '_instance' => new class () {
+        '_instance' => new class()
+        {
             public string $id = 'livewire-id';
         },
     ]);
@@ -83,7 +84,8 @@ it('should create the notify expression with livewire', function () {
     HTML;
 
     $rendered = Blade::render($html, [
-        '_instance' => new class () {
+        '_instance' => new class()
+        {
             public string $id = 'livewire-id';
         },
     ]);

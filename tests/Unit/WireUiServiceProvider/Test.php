@@ -31,7 +31,6 @@ it('should merge the wireui config', function () {
 
 test('the root dir function should create the correct path', function () {
     /** @var TestCase $this */
-
     $provider = new WireUiServiceProvider(new Application());
 
     expect($this->invokeMethod($provider, 'rootDir', ['config.php']))->toEndWith('/src/config.php');
@@ -99,7 +98,6 @@ it('should register the blade directives', function () {
 
 it('should register the component attributes bag macros', function () {
     /** @var TestCase $this */
-
     $macros = $this->invokeProperty(new ComponentAttributeBag(), 'macros');
 
     expect($macros)->toHaveKey('wireModifiers');
@@ -107,7 +105,6 @@ it('should register the component attributes bag macros', function () {
 
 it('should register the attribute macro on ComponentAttributeBag', function () {
     /** @var TestCase $this */
-
     $macros = $this->invokeProperty(new ComponentAttributeBag(), 'macros');
 
     expect($macros)->toHaveKey('attribute');

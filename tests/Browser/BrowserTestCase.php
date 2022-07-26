@@ -9,9 +9,8 @@ use Facebook\WebDriver\Remote\{DesiredCapabilities, RemoteWebDriver};
 use Illuminate\Support\Facades\{Artisan, File, Route};
 use Laravel\Dusk\Browser;
 
-use function Livewire\str;
-
 use Livewire\Testing\TestableLivewire;
+
 use Livewire\{Component, Livewire, LivewireServiceProvider};
 use Orchestra\Testbench\Dusk;
 use Psy\Shell;
@@ -21,6 +20,8 @@ use Throwable;
 use WireUi\Heroicons\HeroiconsServiceProvider;
 use WireUi\PhosphorIcons\PhosphorIconsServiceProvider;
 use WireUi\WireUiServiceProvider;
+
+use function Livewire\str;
 
 /** @link https://github.com/livewire/livewire/blob/master/tests/Browser/TestCase.php */
 class BrowserTestCase extends Dusk\TestCase

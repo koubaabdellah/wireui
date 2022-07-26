@@ -40,7 +40,9 @@ class NativeSelect extends FormComponent
 
     /**
      * Validate if the select options is set correctly.
+     *
      * @return void
+     *
      * @throws Exception
      */
     private function validateConfig(): void
