@@ -3,11 +3,11 @@
 return [
     'select_time'   => 'Selecione a Hora',
     'search_here'   => 'Pesquise Aqui',
-    'empty_options' => 'Opções vazias',
+    'empty_options' => 'Opções Vazias',
     'loading'       => 'Carregando...',
-    'datePicker'    => [
-        'months'    => "['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']",
-        'days'      => "['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']",
+    'date_picker'   => [
+        'months'    => ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+        'days'      => ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
         'tomorrow'  => 'Amanhã',
         'today'     => 'Hoje',
         'yesterday' => 'Ontem',

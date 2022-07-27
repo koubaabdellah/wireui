@@ -1,11 +1,13 @@
 <?php
 
 return [
-    'empty_options' => 'Nessuna Opzione',
+    'select_time'   => 'Seleziona il tempo',
     'search_here'   => 'Cerca qui',
-    'datePicker'    => [
-        'months'    => "['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre']",
-        'days'      => "['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab']",
+    'empty_options' => 'Nessuna Opzione',
+    'loading'       => 'Caricamento in corso...',
+    'date_picker'   => [
+        'months'    => ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
+        'days'      => ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'],
         'tomorrow'  => 'Domani',
         'today'     => 'Oggi',
         'yesterday' => 'Ieri',

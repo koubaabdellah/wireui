@@ -1,11 +1,13 @@
 <?php
 
 return [
-    'empty_options' => 'Lege Opties',
+    'select_time'   => 'Selecteer tijd',
     'search_here'   => 'Zoek hier',
-    'datePicker'    => [
-        'months'    => "['Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni', 'Juli', 'Augustus', 'September', 'Oktober', 'November', 'December']",
-        'days'      => "['Zo', 'Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za']",
+    'empty_options' => 'Lege opties',
+    'loading'       => 'Bezig met laden...',
+    'date_picker'   => [
+        'months'    => ['Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni', 'Juli', 'Augustus', 'September', 'Oktober', 'November', 'December'],
+        'days'      => ['Zo', 'Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za'],
         'tomorrow'  => 'Morgen',
         'today'     => 'Vandaag',
         'yesterday' => 'Gisteren',

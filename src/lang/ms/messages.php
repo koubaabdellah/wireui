@@ -2,12 +2,12 @@
 
 return [
     'select_time'   => 'Pilih masa',
-    'empty_options' => 'Tiada rekod dijumpai.',
-    'loading'       => 'Loading...',
-    'search_here'   => 'Cari',
-    'datePicker'    => [
-        'months'    => "['Januari', 'Februari', 'Mar', 'April', 'Mei', 'Jun', 'Julai', 'Ogos', 'September', 'Oktober', 'November', 'Disember']",
-        'days'      => "['Ahd', 'Isn', 'Sel', 'Rab', 'Kha', 'Jum', 'Sab']",
+    'search_here'   => 'Cari di sini',
+    'empty_options' => 'Pilihan kosong',
+    'loading'       => 'Memuatkan ...',
+    'date_picker'   => [
+        'months'    => ['Januari', 'Februari', 'Mar', 'April', 'Mei', 'Jun', 'Julai', 'Ogos', 'September', 'Oktober', 'November', 'Disember'],
+        'days'      => ['Ahd', 'Isn', 'Sel', 'Rab', 'Kha', 'Jum', 'Sab'],
         'tomorrow'  => 'Esok',
         'today'     => 'Hari Ini',
         'yesterday' => 'Semalam',

@@ -1,13 +1,13 @@
 <?php
 
 return [
-    'select_time'   => 'Sélectionner l\'heure',
+    'select_time'   => "Sélectionner l'heure",
+    'search_here'   => 'Cherchez ici',
     'empty_options' => 'Aucune Option',
     'loading'       => 'Chargement...',
-    'search_here'   => 'Cherchez ici',
-    'datePicker'    => [
-        'months'    => "['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']",
-        'days'      => "['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam']",
+    'date_picker'   => [
+        'months'    => ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+        'days'      => ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
         'tomorrow'  => 'Demain',
         'today'     => 'Aujourd\'hui',
         'yesterday' => 'Hier',
