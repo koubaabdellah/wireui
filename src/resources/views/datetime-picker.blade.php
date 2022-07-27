@@ -15,8 +15,8 @@
         userTimezone:  @js($userTimezone ?? ''),
         parseFormat:   @js($parseFormat ?? ''),
         displayFormat: @js($displayFormat ?? ''),
-        weekDays:      @lang('wireui::messages.datePicker.days'),
-        monthNames:    @lang('wireui::messages.datePicker.months'),
+        weekDays:      @js(__('wireui::messages.date_picker.days')),
+        monthNames:    @js(__('wireui::messages.date_picker.months')),
         withoutTime:   @boolean($withoutTime),
     })"
     class="relative"
@@ -72,21 +72,21 @@
                         :component="WireUi::component('button')"
                         class="bg-secondary-100 border-none dark:bg-secondary-800"
                         x-on:click="selectYesterday"
-                        :label="__('wireui::messages.datePicker.yesterday')"
+                        :label="__('wireui::messages.date_picker.yesterday')"
                     />
 
                     <x-dynamic-component
                         :component="WireUi::component('button')"
                         class="bg-secondary-100 border-none dark:bg-secondary-800"
                         x-on:click="selectToday"
-                        :label="__('wireui::messages.datePicker.today')"
+                        :label="__('wireui::messages.date_picker.today')"
                     />
 
                     <x-dynamic-component
                         :component="WireUi::component('button')"
                         class="bg-secondary-100 border-none dark:bg-secondary-800"
                         x-on:click="selectTomorrow"
-                        :label="__('wireui::messages.datePicker.tomorrow')"
+                        :label="__('wireui::messages.date_picker.tomorrow')"
                     />
                 </div>
             @endunless
