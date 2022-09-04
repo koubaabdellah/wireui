@@ -3,6 +3,7 @@
     "rules": {
         "Laravel/laravel_phpdoc_alignment": false,
         "align_multiline_comment": true,
+        "single_trait_insert_per_statement": true,
         "array_indentation": true,
         "array_syntax": {
             "syntax": "short"
@@ -16,7 +17,6 @@
         "blank_line_before_statement": {
             "statements": [
                 "break",
-                "case",
                 "continue",
                 "declare",
                 "default",
