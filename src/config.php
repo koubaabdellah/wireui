@@ -34,6 +34,21 @@ return [
 
     /*
         |--------------------------------------------------------------------------
+        | Card
+        |--------------------------------------------------------------------------
+        |
+        | The default card preferences
+        |
+    */
+    'card' => [
+        'padding'   => env('WIREUI_CARD_PADDING', 'px-2 py-5 md:px-4'),
+        'shadow'    => env('WIREUI_CARD_SHADOW', 'shadow-md'),
+        'rounded'   => env('WIREUI_CARD_ROUNDED', 'rounded-lg'),
+        'color'     => env('WIREUI_CARD_COLOR', 'bg-white dark:bg-secondary-800'),
+    ],
+
+    /*
+        |--------------------------------------------------------------------------
         | Components
         |--------------------------------------------------------------------------
         |
@@ -44,6 +59,10 @@ return [
         |
      */
     'components' => [
+        'avatar' => [
+            'class' => Components\Avatar::class,
+            'alias' => 'avatar',
+        ],
         'icon' => [
             'class' => Components\Icon::class,
             'alias' => 'icon',
@@ -87,6 +106,14 @@ return [
         'inputs.currency' => [
             'class' => Components\Inputs\CurrencyInput::class,
             'alias' => 'inputs.currency',
+        ],
+        'inputs.number' => [
+            'class' => Components\Inputs\NumberInput::class,
+            'alias' => 'inputs.number',
+        ],
+        'inputs.password' => [
+            'class' => Components\Inputs\PasswordInput::class,
+            'alias' => 'inputs.password',
         ],
         'button' => [
             'class' => Components\Button::class,

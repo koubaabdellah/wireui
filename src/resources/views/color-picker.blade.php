@@ -2,12 +2,12 @@
     colorNameAsValue: @boolean($colorNameAsValue),
 
     @if ($attributes->wire('model')->value())
-        wireModifiers: @js($attributes->wireModifiers()),
+        wireModifiers: @toJs($attributes->wireModifiers()),
         wireModel: @entangle($attributes->wire('model')),
     @endif
 
     @if ($colors)
-        colors: @js($getColors())
+        colors: @toJs($getColors())
     @endif
 })" {{ $attributes->only(['class', 'wire:key'])->class('relative') }}>
     <x-dynamic-component
@@ -38,7 +38,8 @@
                     flat
                     squared
                     x-on:click="toggle"
-                    trigger>
+                    trigger
+                    :disabled="$disabled">
                     <x-dynamic-component
                         :component="WireUi::component('icon')"
                         class="
