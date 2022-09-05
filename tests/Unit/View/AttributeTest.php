@@ -28,6 +28,7 @@ it('should get the attribute name', function (?string $directive, ?string $name)
     ['spinner.lazy.lazy', 'spinner'],
     ['spinner.lazy..bar', 'spinner'],
     ['spinner.lazy.foo.', 'spinner'],
+    ['spinner:lazy,foo.', 'spinner'],
     ['', ''],
     [null, ''],
     ['.foo', ''],
@@ -77,3 +78,13 @@ it('should return if the attribute exists', function ($attribute) {
     [false],
     [null],
 ]);
+
+it('should get the attribute params', function () {
+    /** @var TestCase $this */
+    $attribute = new Attribute(
+        directive: 'foo:baz,bar',
+        value: true,
+    );
+
+    expect($attribute->params()->toArray())->toBe(['baz', 'bar']);
+});

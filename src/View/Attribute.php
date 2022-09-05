@@ -27,6 +27,19 @@ class Attribute
             ->values();
     }
 
+    public function params(): Collection
+    {
+        if (!str_contains($this->directive, ':')) {
+            return collect();
+        }
+
+        return Str::of($this->directive)
+            ->after(':')
+            ->explode(',')
+            ->filter()
+            ->values();
+    }
+
     public function directive(): ?string
     {
         return $this->directive;
@@ -34,7 +47,7 @@ class Attribute
 
     public function name(): ?string
     {
-        return Str::of($this->directive)->before('.');
+        return Str::of($this->directive)->before(':')->before('.');
     }
 
     public function value(): mixed
