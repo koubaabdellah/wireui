@@ -8,9 +8,9 @@ use Stringable;
 class Color implements Stringable
 {
     public function __construct(
-        readonly private string|array $base = '',
-        readonly private string|array $hover = '',
-        readonly private string|array $focus = '',
+        public string|array $base = '',
+        public string|array $hover = '',
+        public string|array $focus = '',
     ) {
     }
 
