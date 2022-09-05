@@ -1,10 +1,11 @@
 <?php
 
-namespace WireUi\View\Components;
+namespace WireUi\View\Components\Buttons;
 
 use Closure;
+use WireUi\View\Components\Button;
 
-class CircleButton extends Button
+class Circle extends Button
 {
     public function __construct(
         public bool $outline = false,
@@ -20,9 +21,8 @@ class CircleButton extends Button
             squared: false,
             outline: $outline,
             flat: $flat,
-            full: false,
-            preventWireLoading: $preventWireLoading,
-            color: $color,
+            block: false,
+            disableOnWireLoading: $preventWireLoading,
             size: $size,
             label: $label,
             icon: $icon,
@@ -56,7 +56,7 @@ class CircleButton extends Button
         return $data;
     }
 
-    public function sizes(): array
+    protected static function sizes(): array
     {
         return [
             '2xs'     => 'w-5 h-5',
@@ -69,7 +69,7 @@ class CircleButton extends Button
         ];
     }
 
-    public function iconSizes(): array
+    protected static function iconSizes(): array
     {
         return [
             '2xs'     => 'w-2 h-2',
