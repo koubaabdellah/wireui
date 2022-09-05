@@ -4,11 +4,10 @@ namespace WireUi;
 
 use Illuminate\Foundation\{AliasLoader, Application};
 use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\{ServiceProvider, Str};
+use Illuminate\Support\{Arr, ServiceProvider, Str};
 use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\ComponentAttributeBag;
-use Livewire\LivewireBladeDirectives;
-use Livewire\WireDirective;
+use Livewire\{LivewireBladeDirectives, WireDirective};
 use WireUi\Facades\{WireUi, WireUiDirectives};
 use WireUi\View\Attribute;
 use WireUi\View\Compilers\WireUiTagCompiler;
@@ -74,7 +73,7 @@ class WireUiServiceProvider extends ServiceProvider
 
     private function disablePhosphorIconComponent(): self
     {
-        config()->set('wireui.phosphoricons.alias', 'icons.phosphoricons');
+        config()->set('wireui.phosphoricons.alias', 'icons.phosphor');
         config()->set('wireui.heroicons.alias', 'icons.heroicons');
 
         return $this;
@@ -131,6 +130,21 @@ class WireUiServiceProvider extends ServiceProvider
 
     protected function registerMacros(): self
     {
+        Arr::macro('toRecursiveCssClasses', function ($classList): string {
+            $classList = Arr::wrap($classList);
+            $classes   = [];
+
+            foreach ($classList as $class => $constraint) {
+                if (is_numeric($class)) {
+                    $classes[] = Arr::toCssClasses($constraint);
+                } elseif ($constraint) {
+                    $classes[] = $class;
+                }
+            }
+
+            return implode(' ', $classes);
+        });
+
         ComponentAttributeBag::macro('wireModifiers', function () {
             /** @var ComponentAttributeBag $this */
 
