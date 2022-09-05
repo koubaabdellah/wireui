@@ -20,6 +20,10 @@ class Base extends Component
 
     protected function proccessData(array $data): array
     {
+        if (method_exists($this, 'init')) {
+            call_user_func([$this, 'init']);
+        }
+
         if (!$this->attributes->has('href') && !$this->attributes->has('type')) {
             $this->attributes->offsetSet('type', 'button');
         }
