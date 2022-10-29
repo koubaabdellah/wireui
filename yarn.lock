@@ -2102,6 +2102,13 @@ alpinejs@^3.10.3:
   dependencies:
     "@vue/reactivity" "~3.1.1"
 
+alpinejs@^3.10.4:
+  version "3.10.5"
+  resolved "https://registry.yarnpkg.com/alpinejs/-/alpinejs-3.10.5.tgz#59ca09ad42293cc8e0bbbdf4c7696fc22c6df700"
+  integrity sha512-qlvnal44Gof2XVfm/lef8fYpXKxR9fjdSki7aFB/9THyFvbsRKZ6lM5SjxXpIs7B0faJt7bgpK2K25gzrraXJw==
+  dependencies:
+    "@vue/reactivity" "~3.1.1"
+
 ansi-escapes@^4.2.1:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/ansi-escapes/-/ansi-escapes-4.3.2.tgz#6b2291d1db7d98b6521d5f1efa42d0f3a9feb65e"
