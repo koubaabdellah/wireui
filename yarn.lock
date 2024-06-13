@@ -1967,10 +1967,10 @@
   resolved "https://registry.yarnpkg.com/@webpack-cli/serve/-/serve-1.6.1.tgz#0de2875ac31b46b6c5bb1ae0a7d7f0ba5678dffe"
   integrity sha512-gNGTiTrjEVQ0OcVnzsRSqTxaBSr+dmTfm+qJsCDluky8uhdLWep7Gcr62QsAKHTMxjCS/8nEITsmFAhfIx+QSw==
 
-"@wireui/alpinejs-hold-directive@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@wireui/alpinejs-hold-directive/-/alpinejs-hold-directive-1.0.1.tgz#73bf2914cbfa2d61f8b513a083b861b65446a667"
-  integrity sha512-5VDn1sNdXU4cFdnNU4J+p4g7FWS8PrSe8MlJiwqiJdDHSxlmtw+eXS5t18vyNNBuA3QQibhzvscPBzp20zjPBA==
+"@wireui/alpinejs-hold-directive@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@wireui/alpinejs-hold-directive/-/alpinejs-hold-directive-1.0.3.tgz#ca9be9fd0be0002036ff3572780c49296fcbe56a"
+  integrity sha512-SzpGS3tPk7tDeBiAlrI3ZQoyDUBW/q393CgrDvmJ+VFK7BkyY92TbgLpQeOmJVmhoTzDNEFNnlOPLvc21kZxAw==
   dependencies:
     alpinejs "^3.10.3"
 
